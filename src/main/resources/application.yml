@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: redis-tool
+  redis:
+    host: 172.17.0.1
+    port: 6370
+    password: ""
+logging:
+  level:
+    root: info
