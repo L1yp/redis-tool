@@ -3,6 +3,7 @@ package com.l1yp.util;
 import com.l1yp.conf.RedisKey;
 import com.l1yp.conf.RedisTemplateEx;
 import org.springframework.dao.DataAccessException;
+import org.springframework.data.redis.core.HashOperations;
 import org.springframework.data.redis.core.RedisOperations;
 import org.springframework.data.redis.core.SessionCallback;
 import org.springframework.stereotype.Component;
