@@ -1,5 +1,6 @@
 package com.l1yp.model;
 
+import com.l1yp.enums.MessageType;
 import com.l1yp.enums.SexType;
 
 /**
@@ -12,6 +13,7 @@ public class UserInfo {
     public Long id;
     public String name;
     public SexType sex;
+    public MessageType type;
 
     @Override
     public String toString() {
@@ -19,8 +21,10 @@ public class UserInfo {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", sex=" + sex +
+                ", type=" + type +
                 '}';
     }
+
 
     // public Long getId() {
     //     return id;

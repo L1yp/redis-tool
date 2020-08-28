@@ -5,10 +5,10 @@ package com.l1yp.enums;
  * @Date 2020-08-27
  * @Email l1yp@qq.com
  */
-public enum SexType implements BaseEnum {
+public enum SexType implements EnumBase {
     ALL(0),
-    WOMAN(2),
-    MAN(1),
+    WOMAN(20),
+    MAN(10),
     ;
 
     int code;
