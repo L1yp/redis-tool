@@ -158,9 +158,9 @@ public class EcdhCrypt {
     public static void main(String[] args) throws Exception {
         Security.addProvider(new BouncyCastleProvider());
 
-        PublicKey publicKey = new EcdhCrypt().constructX509PublicKey("302E301006072A8648CE3D020106052B8104001F031A00020B03CF3D99541F29FFEC281BEBBD4EA211292AC1F53D7128");
-        System.out.println(publicKey);
-        System.exit(0);
+        // PublicKey publicKey = new EcdhCrypt().constructX509PublicKey("302E301006072A8648CE3D020106052B8104001F031A00020B03CF3D99541F29FFEC281BEBBD4EA211292AC1F53D7128");
+        // System.out.println(publicKey);
+        // System.exit(0);
 
         new EcdhCrypt().initShareKeyByBouncycastle();
     }

@@ -51,14 +51,15 @@ public class HashThreadPoolExecutor {
 
     private final Object lock = new Object();
 
-    public void execute(String key, Runnable task){
+    public void execute(int idx, Runnable task){
+        if (idx < 0 || idx >= this.corePoolSize){
+            throw new IndexOutOfBoundsException("expected: 0 <= idx <= " + (corePoolSize - 1));
+        }
         int state = ctl.get();
         if (runStateOf(state) != RUNNING){
             return;
         }
 
-        int idx = key.hashCode() % this.corePoolSize;
-        assert idx >= 0 && idx < this.corePoolSize;
         if (this.workers[idx] == null || this.workers[idx].thread == null || !this.workers[idx].thread.isAlive()){
             synchronized (lock){
                 if (this.workers[idx] == null){
@@ -74,8 +75,6 @@ public class HashThreadPoolExecutor {
         }
         this.workers[idx].addTask(task);
     }
-
-
 
     private final class Worker implements Runnable {
 
@@ -241,10 +240,6 @@ public class HashThreadPoolExecutor {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-    }
-
-    private void interruptIdleWorkers(boolean onlyOne) {
-
     }
 
     private void advanceRunState(int targetState) {
